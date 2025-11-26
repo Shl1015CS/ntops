@@ -20,6 +20,7 @@ from ntops.torch.layer_norm import layer_norm
 from ntops.torch.le import le
 from ntops.torch.lt import lt
 from ntops.torch.matmul import matmul
+from ntops.torch.mla import mla_attention, mla_update_cache
 from ntops.torch.mm import mm
 from ntops.torch.mul import mul
 from ntops.torch.ne import ne
@@ -60,6 +61,8 @@ __all__ = [
     "le",
     "lt",
     "matmul",
+    "mla_attention",
+    "mla_update_cache",
     "mm",
     "mul",
     "ne",
