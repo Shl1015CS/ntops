@@ -63,8 +63,10 @@ def mla_attention(
     
     # Apply attention and project to output
     # output = (attn_weights @ kv_cache) @ wkv_b_value
+    # weighted_kv: [bsz, seqlen, n_heads, kv_lora_rank]
+    # wkv_b_value: [heads, kv_lora_rank, v_dim]
     weighted_kv = torch.einsum("bsht,btc->bshc", attn_weights, kv_cache)
-    output = torch.einsum("bshc,hdc->bshd", weighted_kv, wkv_b_value)
+    output = torch.einsum("bshc,hcd->bshd", weighted_kv, wkv_b_value)
     
     return output
 
